@@ -1,0 +1,3 @@
+# SCSS
+
+SCSS (Sassy CSS) is a preprocessor for [CSS](/wiki/CSS) that extends its capabilities with features like variables, nesting, mixins, and inheritance, making stylesheets more maintainable and reusable. It is a superset of CSS, meaning any valid CSS is also valid SCSS, but SCSS allows for more advanced styling logic. By compiling SCSS into standard CSS, developers can write cleaner, more structured styles for web projects.
