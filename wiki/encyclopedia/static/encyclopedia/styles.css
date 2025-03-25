@@ -1,31 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 /* CSS variables */
 
 :root {
   --white: #ffffff;
+  --gray-100: #e3e3e3;
   --gray-200: #f0f0f0;
+  --gray-300: #a2a9b1;
+  --gray-400: #e5e5e5;
+  --gray-500: #72777d;
+  --gray-800: #282828;
+  --orange-code: #fe8d51;
+  --blue-link: #0645ad;
+  --blue-link-hover: #3056a9;
+  --blue-link-visited: #6a60b0;
+  --p-0: 4px;
+  --p-1: 8px;
+  --p-2: 16px;
+  --p-3: 24px;
+  --p-4: 32px;
+}
+
+@font-face {
+  font-family: "Linux Libertine Regular";
+  src: url("/wiki/encyclopedia/static/encyclopedia/fonts/linux-libertine/LinLibertine_R.otf");
 }
 
 /* CSS reset  */
 /* based on modern CSS reset by Josh Comeau */
 /* https://www.joshwcomeau.com/css/custom-css-reset/ */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 * {
   margin: 0;
 }
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
 input,
 button,
 textarea,
 select {
   font: inherit;
+  padding: 0;
 }
+
 p,
 h1,
 h2,
@@ -48,10 +80,42 @@ body {
 body {
   margin: 0;
   background-color: var(--white);
+  font-family: "Open Sans", sans-serif;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Linux Libertine Regular", "Georgia", "Times", "Source Serif Pro",
+    serif;
+  line-height: 1.375;
+  padding-bottom: 0.17em;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  margin: 0.5em 0 1em 0;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--blue-link);
+  &:hover {
+    color: var(--blue-link-hover);
+  }
+  &:visited {
+    color: var(--blue-link-visited);
+  }
 }
 
 code {
   white-space: pre;
+  color: var(--orange-code);
 }
 
 .row {
@@ -60,18 +124,93 @@ code {
   }
 }
 
-.main {
-  padding: 10px;
+.logo {
+  max-width: 200px;
 }
 
-.search {
+.search__form {
+  position: relative;
+}
+
+.search__icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: var(--p-1);
+  color: var(--gray-500);
+  position: absolute;
+  top: 50%;
+  left: var(--p-1);
+  transform: translateY(-50%);
+}
+
+.search__input {
   width: 100%;
-  font-size: 15px;
-  line-height: 15px;
+  font-size: 1rem;
+  line-height: 1;
+  padding: var(--p-1) var(--p-1) var(--p-1) calc(1rem + var(--p-2));
+  border-radius: var(--p-0);
+  border-width: 1px;
+  &:focus,
+  &:focus-visible {
+    outline-color: var(--blue-link);
+  }
 }
 
 .sidebar {
   background-color: var(--gray-200);
   height: 100%;
-  padding: 20px;
+  gap: var(--p-1);
+}
+
+.sidenav {
+  gap: var(--p-0);
+}
+
+.main__ul {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  gap: var(--p-0);
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  margin-top: var(--p-3);
+  margin-bottom: var(--p-2);
+  font-size: 1.5em;
+}
+
+h1,
+h2 {
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.return-btn {
+  font-size: 0.9rem;
+}
+
+.add-entry__form {
+  gap: var(--p-1);
+}
+
+.add-entry__submit-btn {
+  margin-top: var(--p-2);
+  max-width: 150px;
+  margin-left: auto;
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  background-color: var(--gray-400);
+  color: var(--gray-800);
+  padding: var(--p-2);
+  p {
+    margin: 0;
+  }
 }

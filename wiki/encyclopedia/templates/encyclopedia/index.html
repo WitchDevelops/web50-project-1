@@ -7,7 +7,7 @@
 {% block body %}
     <h1>All Pages</h1>
 
-    <ul>
+    <ul class="main__ul d-flex flex-column mt-4">
         {% for entry in entries %}
             <li>
                 <a href="{% url 'entry' entry %}">{{entry}}</a>

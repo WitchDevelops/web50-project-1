@@ -8,7 +8,7 @@
     <h1>Search Results for "{{ query }}"</h1>
 
     {% if results %}
-        <ul>
+        <ul class="mt-4">
             {% for result in results %}
                 <li><a href="{% url 'entry' result %}">{{ result }}</a></li>
             {% endfor %}

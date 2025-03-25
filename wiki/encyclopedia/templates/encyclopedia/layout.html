@@ -3,35 +3,55 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
-    </head>
-    <body>
-        <div class="row  m-0">
-            <div class="sidebar col-lg-2 col-md-3">
-                <h2>Wiki</h2>
-                <form action="{% url 'search' %}" method="get">
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
-                </form>
-                <div>
-                    <a href="{% url 'index' %}">Home</a>
-                </div>
-                <div>
-                    <a href="{% url 'new_page' %}">Create New Page</a>
-                </div>
-                <div>
-                    <a href="{% url 'random_page' %}">Random Page</a>
-                </div>
-                {% block nav %}
-                {% endblock %}
-            </div>
-            <div class="main col-lg-10 col-md-9">
-                {% block body %}
-                {% endblock %}
-            </div>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="row m-0">
+      <div class="sidebar col-lg-2 col-md-3 p-4 d-flex flex-column">
+        <a href="{% url 'index' %}">
+          <img
+            class="logo"
+            src="{% static 'encyclopedia/images/logo.png' %}"
+            alt="Wiki"
+          />
+        </a>
+
+        <form class="search__form" action="{% url 'search' %}" method="get">
+          <img
+            class="search__icon"
+            src="{% static 'encyclopedia/icons/search.svg' %}"
+            alt=""
+          />
+          <input
+            class="search__input"
+            type="text"
+            name="q"
+            placeholder="Search Encyclopedia"
+          />
+        </form>
+
+        <div class="sidenav d-flex flex-column mt-4">
+          <a href="{% url 'index' %}">Home</a>
+          <a href="{% url 'new_page' %}">Create New Page</a>
+          <a href="{% url 'random_page' %}">Random Page</a>
         </div>
 
-    </body>
+        {% block nav %} {% endblock %}
+      </div>
+      <div class="main col-lg-10 col-md-9 p-4">
+        {% block body %} {% endblock %}
+      </div>
+    </main>
+    <footer class="footer">
+        <p>Coded by <a href="https://dominika-wojewska.netlify.app/" target="_blank"> Dominika Wojewska</a> as a part of <a href="https://cs50.harvard.edu/web/2020/projects/1/" target="_blank"> CS50 for Web</a></p>
+    </footer>
+  </body>
 </html>

@@ -1,6 +1,6 @@
 # Angular
 
-Angular is a **TypeScript-based web framework** developed by Google for building dynamic, single-page applications (SPAs). It provides a **component-based architecture**, built-in tools for state management, and a powerful dependency injection system.
+Angular is a **[TypeScript](/wiki/TypeScript)-based web framework** developed by Google for building dynamic, single-page applications (SPAs). It provides a **component-based architecture**, built-in tools for state management, and a powerful dependency injection system.
 
 ## Key Features
 - **Component-Based**: Applications are built using modular and reusable components.

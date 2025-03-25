@@ -5,6 +5,6 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{% url 'index' %}">Back to home page</a>
+    <a class="return-btn" href="{% url 'index' %}">Back to home page</a>
     <p>{{ content|safe }}</p>  <!-- Use 'safe' to allow HTML formatting if Markdown is converted -->
 {% endblock %}
