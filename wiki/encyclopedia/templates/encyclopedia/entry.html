@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'index' %}">Back to home page</a>
+    <p>{{ content|safe }}</p>  <!-- Use 'safe' to allow HTML formatting if Markdown is converted -->
+{% endblock %}

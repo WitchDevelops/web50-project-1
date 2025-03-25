@@ -34,6 +34,8 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Styles  */
@@ -58,16 +60,6 @@ code {
   }
 }
 
-/* h1 {
-  margin-top: 0px;
-  padding-top: 20px;
-} */
-
-/* textarea {
-  height: 90vh;
-  width: 80%;
-} */
-
 .main {
   padding: 10px;
 }
@@ -82,8 +74,4 @@ code {
   background-color: var(--gray-200);
   height: 100%;
   padding: 20px;
-}
-
-.sidebar h2 {
-  margin-top: 5px;
 }
