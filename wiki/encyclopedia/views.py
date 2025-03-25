@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . import util
 import markdown2
-
+import random
 
 def index(request):
     entries = util.list_entries()
@@ -34,3 +34,12 @@ def search(request):
         "query": query,
         "results": results
     })
+
+def random_page(request):
+    entries = util.list_entries()
+
+    if not entries:
+        return redirect("index")
+    
+    random_page = random.choice(entries)
+    return redirect("entry", title=random_page)
