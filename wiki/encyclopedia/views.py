@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
-from . import util
+from django import forms
 import markdown2
 import random
+from . import util
+
+class NewPageForm(forms.Form):
+    title = forms.CharField(label="Title", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    content = forms.CharField(label="Content", widget=forms.Textarea(attrs={'class': 'form-control'}))
 
 def index(request):
     entries = util.list_entries()
@@ -43,3 +48,21 @@ def random_page(request):
     
     random_page = random.choice(entries)
     return redirect("entry", title=random_page)
+
+def new_page(request):
+    if request.method == "POST":
+        form = NewPageForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"].strip()
+            content = form.cleaned_data["content"]
+
+            if util.get_entry(title):
+                return render(request, "encyclopedia/new_page.html", {
+                    "form": form,
+                    "error": "An entry with this title already exists."
+                })
+
+            util.save_entry(title, content)
+            return redirect("entry", title=title)
+
+    return render(request, "encyclopedia/new_page.html", {"form": NewPageForm()})
