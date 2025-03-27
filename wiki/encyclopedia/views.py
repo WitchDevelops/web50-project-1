@@ -8,6 +8,9 @@ class NewPageForm(forms.Form):
     title = forms.CharField(label="Title", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     content = forms.CharField(label="Content", widget=forms.Textarea(attrs={'class': 'form-control'}))
 
+class EditEntryForm(forms.Form):
+    content = forms.CharField(label="Content", widget=forms.Textarea(attrs={'class': 'form-control'}))
+
 def index(request):
     entries = util.list_entries()
     return render(request, "encyclopedia/index.html", {
@@ -24,6 +27,23 @@ def entry(request, title):
     return render(request, "encyclopedia/entry.html", {
         "title": title,
         "content": markdown2.markdown(content)
+    })
+
+def edit_entry(request, title):
+    entry_content = util.get_entry(title)
+    if entry_content is None:
+        return render(request, "encyclopedia/error.html", {"message": "Page not found."})
+
+    if request.method == "POST":
+        form = EditEntryForm(request.POST)
+        if form.is_valid():
+            content = form.cleaned_data["content"]
+            util.save_entry(title, content)
+            return redirect("entry", title=title)
+
+    return render(request, "encyclopedia/edit_entry.html", {
+        "form": EditEntryForm(initial={"content": entry_content}),
+        "title": title
     })
 
 def search(request):

@@ -4,6 +4,9 @@
 
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
     <title>{% block title %}{% endblock %}</title>
     <link
       rel="stylesheet"
@@ -39,9 +42,18 @@
         </form>
 
         <div class="sidenav d-flex flex-column mt-4">
-          <a href="{% url 'index' %}">Home</a>
-          <a href="{% url 'new_page' %}">Create New Page</a>
-          <a href="{% url 'random_page' %}">Random Page</a>
+          <a class="d-flex align-items-center" href="{% url 'index' %}">
+            <img class="icon" src="{% static 'encyclopedia/icons/home.svg' %}">
+            Home
+          </a>
+          <a class="d-flex align-items-center" href="{% url 'new_page' %}">
+            <img class="icon" src="{% static 'encyclopedia/icons/square-plus.svg' %}">
+            Create New Page
+          </a>
+          <a class="d-flex align-items-center" href="{% url 'random_page' %}">
+            <img class="icon" src="{% static 'encyclopedia/icons/dice.svg' %}">
+            Random Page
+          </a>
         </div>
 
         {% block nav %} {% endblock %}

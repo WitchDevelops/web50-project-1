@@ -2,32 +2,19 @@
 {% load static %}
 
 {% block title %}
-    Create New Page
+    Edit: {{ title }}
 {% endblock %}
 
 {% block body %}
-    <h1>Create a New Encyclopedia Entry</h1>
-
-    {% if error %}
-        <div class="alert alert-danger">
-            {{ error }}
-        </div>
-        <div>
-            <img
-                class="no-results-img"
-                src="{% static 'encyclopedia/images/play.png' %}"
-                alt=""
-          />
-        </div>
-    {% endif %}
+    <h1>Edit Entry: {{ title }}</h1>
 
     <form 
         class="add-entry__form mt-4 d-flex flex-column" 
-        action="{% url 'new_page' %}" 
+        action="{% url 'edit_entry' title=title %}" 
         method="post">
-        
-        {% csrf_token %}
 
+        {% csrf_token %}
+        
         <label for="{{ form.title.id_for_label }}">Title:</label>
         {{ form.title }}
 
@@ -36,7 +23,7 @@
 
         <button type="submit" class="add-entry__submit-btn btn btn-primary d-flex align-items-center">
             <img class="icon" src="{% static 'encyclopedia/icons/floppy.svg' %}">
-            Save Page
+            Save Changes
         </button>
     </form>
 {% endblock %}

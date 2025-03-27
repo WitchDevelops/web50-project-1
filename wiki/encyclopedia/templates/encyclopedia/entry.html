@@ -6,13 +6,27 @@
 {% endblock %}
 
 {% block body %}
-    <a class="return-btn d-flex align-items-center" href="{% url 'index' %}">
-        <img
-            class="icon"
-            src="{% static 'encyclopedia/icons/arrow-left.svg' %}"
-            alt=""
-          />
-        Back to home page
-    </a>
+    <div class="d-flex align-items-center justify-content-between">
+        <a class="return-btn d-flex align-items-center" href="{% url 'index' %}">
+            <img
+                class="icon"
+                src="{% static 'encyclopedia/icons/arrow-left.svg' %}"
+                alt=""
+            />
+            Back to home page
+        </a>
+        <a class="edit-btn d-flex align-items-center" href="{% url 'edit_entry' title=title %}" aria-label="Edit entry">
+            <img
+                class="icon"
+                src="{% static 'encyclopedia/icons/pen.svg' %}"
+                alt=""
+            />
+            Edit this article
+        </a>
+    </div>
+    
+
+    
+
     <p>{{ content|safe }}</p>  <!-- Use 'safe' to allow HTML formatting if Markdown is converted -->
 {% endblock %}
