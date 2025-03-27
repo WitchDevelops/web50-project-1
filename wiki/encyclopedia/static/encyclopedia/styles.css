@@ -128,14 +128,17 @@ code {
   max-width: 200px;
 }
 
+.icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: var(--p-1);
+}
+
 .search__form {
   position: relative;
 }
 
 .search__icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: var(--p-1);
   color: var(--gray-500);
   position: absolute;
   top: 50%;

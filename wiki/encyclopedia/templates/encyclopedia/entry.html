@@ -1,10 +1,18 @@
 {% extends "encyclopedia/layout.html" %}
+{% load static %}
 
 {% block title %}
     {{ title }}
 {% endblock %}
 
 {% block body %}
-    <a class="return-btn" href="{% url 'index' %}">Back to home page</a>
+    <a class="return-btn d-flex align-items-center" href="{% url 'index' %}">
+        <img
+            class="icon"
+            src="{% static 'encyclopedia/icons/arrow-left.svg' %}"
+            alt=""
+          />
+        Back to home page
+    </a>
     <p>{{ content|safe }}</p>  <!-- Use 'safe' to allow HTML formatting if Markdown is converted -->
 {% endblock %}
