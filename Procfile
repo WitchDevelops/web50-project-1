@@ -1,1 +1,0 @@
-web: gunicorn wiki.wsgi --bind 0.0.0.0:$PORT
