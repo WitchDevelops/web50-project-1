@@ -1,4 +1,5 @@
 {% extends "encyclopedia/layout.html" %}
+{% load static %}
 
 {% block title %}
     Error
@@ -7,5 +8,15 @@
 {% block body %}
     <h1>Error</h1>
     <p>{{ message }}</p>
-    <a href="{% url 'index' %}">Go back to home</a>
+    <div>
+        <img class="no-results-img" src="{% static 'encyclopedia/images/sad.png' %}">
+    </div>
+    <a class="d-flex align-items-center mt-3 return-btn" href="{% url 'index' %}">
+        <img
+            class="icon"
+            src="{% static 'encyclopedia/icons/arrow-left.svg' %}"
+            alt=""
+          />
+        Go back to home
+    </a>
 {% endblock %}

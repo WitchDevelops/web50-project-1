@@ -206,6 +206,10 @@ h2 {
   margin-left: auto;
 }
 
+.no-results-img {
+  max-width: 250px;
+}
+
 .footer {
   display: grid;
   place-items: center;

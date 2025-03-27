@@ -1,4 +1,5 @@
 {% extends "encyclopedia/layout.html" %}
+{% load static %}
 
 {% block title %}
     Search Results
@@ -14,6 +15,10 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>No results found.</p>
+        <div class="d-flex flex-column align-items-center">
+            <img class="no-results-img" src="{% static 'encyclopedia/images/bite.png' %}">
+            <p>No results found. Try a different search phrase.</p>
+        </div>
+        
     {% endif %}
 {% endblock %}
